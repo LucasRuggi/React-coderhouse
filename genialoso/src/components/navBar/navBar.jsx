@@ -1,42 +1,48 @@
-import * as ReactBooStrap from "react-bootstrap";
+import Navbar from "react-bootstrap/Navbar";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import NavDropdown from "react-bootstrap/NavDropdown";
 import LogoGenialoso from "./logo.jsx";
 import "./navBar.css";
 
 function NavBar() {
   return (
     <>
-      <ReactBooStrap.Navbar bg="dark" variant="dark" expand="lg">
-        <ReactBooStrap.Container>
-          <ReactBooStrap.Navbar.Brand href="#home">
+      <Navbar bg="dark" variant="dark" expand="lg">
+        <Container>
+          <Navbar.Brand href="#home">
             <LogoGenialoso />
-          </ReactBooStrap.Navbar.Brand>
-          <ReactBooStrap.Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <ReactBooStrap.Navbar.Collapse id="basic-navbar-nav">
-            <ReactBooStrap.Nav className="me-auto">
-              <ReactBooStrap.Nav.Link href="#home">
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link href="#home">
                 Inicio
-              </ReactBooStrap.Nav.Link>
-              <ReactBooStrap.NavDropdown
+              </Nav.Link>
+              <NavDropdown
                 title="Productos"
                 id="basic-nav-dropdown"
               >
-                <ReactBooStrap.NavDropdown.Item href="#Veladores">
+                <NavDropdown.Item href="#Veladores">
                   Veladores
-                </ReactBooStrap.NavDropdown.Item>
-                <ReactBooStrap.NavDropdown.Item href="#Espejos">
+                </NavDropdown.Item>
+
+                <NavDropdown.Item href="#Espejos">
                   Espejos
-                </ReactBooStrap.NavDropdown.Item>
-                <ReactBooStrap.NavDropdown.Item href="#Lamparas">
+                </NavDropdown.Item>
+
+                <NavDropdown.Item href="#Lamparas">
                   Lamparas
-                </ReactBooStrap.NavDropdown.Item>
-              </ReactBooStrap.NavDropdown>
-              <ReactBooStrap.Nav.Link href="#link">
+                </NavDropdown.Item>
+                
+              </NavDropdown>
+              <Nav.Link href="#link">
                 Contacto
-              </ReactBooStrap.Nav.Link>
-            </ReactBooStrap.Nav>
-          </ReactBooStrap.Navbar.Collapse>
-        </ReactBooStrap.Container>
-      </ReactBooStrap.Navbar>
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
     </>
   );
 }

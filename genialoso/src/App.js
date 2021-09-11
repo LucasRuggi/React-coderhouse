@@ -1,7 +1,8 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/navBar/navBar";
-import CrearTitulo from "./components/container/itemListContainer";
+import ListarItemsCargados from "./components/container/itemListContainer";
+
 
 
 function App() {
@@ -10,7 +11,9 @@ function App() {
       <header>
         <NavBar />
       </header>
-      <CrearTitulo titulo="Bienvenidos a Genialoso" />
+      <ListarItemsCargados/>
+
+
     </div>
   );
 }
