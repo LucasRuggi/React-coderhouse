@@ -2,7 +2,9 @@ import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import CarritoNavBar from "./CarritoNavBar/CarritoNavBar";
 import LogoGenialoso from "./logo.jsx";
+import { Link } from "react-router-dom";
 import "./navBar.css";
 
 function NavBar() {
@@ -10,36 +12,39 @@ function NavBar() {
     <>
       <Navbar bg="dark" variant="dark" expand="lg">
         <Container>
-          <Navbar.Brand href="#home">
-            <LogoGenialoso />
+          <Navbar.Brand>
+            <Link to="/">
+              <LogoGenialoso />
+            </Link>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#home">
-                Inicio
+              <Nav.Link>
+                <Link to="/" className="txtLink">
+                  Inicio
+                </Link>
               </Nav.Link>
-              <NavDropdown
-                title="Productos"
-                id="basic-nav-dropdown"
-              >
-                <NavDropdown.Item href="#Veladores">
-                  Veladores
-                </NavDropdown.Item>
+              <NavDropdown title="Productos" id="basic-nav-dropdown">
+                <Link to="/categorias/veladores" className="txtLink">
+                  <NavDropdown.Item href="#Veladores123">
+                    Veladores
+                  </NavDropdown.Item>
+                </Link>
 
-                <NavDropdown.Item href="#Espejos">
-                  Espejos
-                </NavDropdown.Item>
+                <Link to="/categorias/espejos" className="txtLink">
+                  <NavDropdown.Item href="#Espejos123">
+                    Espejos
+                  </NavDropdown.Item>
+                </Link>
 
-                <NavDropdown.Item href="#Lamparas">
-                  Lamparas
-                </NavDropdown.Item>
-                
+                <Link to="/categorias/lamparas" className="txtLink">
+                  <NavDropdown.Item href="#Lamparas123">
+                    Lamparas
+                  </NavDropdown.Item>
+                </Link>
               </NavDropdown>
-              <Nav.Link href="#link">
-                Contacto
-              </Nav.Link>
             </Nav>
+            <CarritoNavBar />
           </Navbar.Collapse>
         </Container>
       </Navbar>
