@@ -15,4 +15,10 @@
 
 .txtLink{
   text-decoration: none;
+  color: rgba(255,255,255,.55);
 }
+
+.txtLink:hover{
+  color: rgba(255,255,255,.75);
+}
+

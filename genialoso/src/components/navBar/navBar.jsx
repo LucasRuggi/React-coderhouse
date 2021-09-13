@@ -17,6 +17,7 @@ function NavBar() {
               <LogoGenialoso />
             </Link>
           </Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link>
@@ -24,6 +25,7 @@ function NavBar() {
                   Inicio
                 </Link>
               </Nav.Link>
+
               <NavDropdown title="Productos" id="basic-nav-dropdown">
                 <Link to="/categorias/veladores" className="txtLink">
                   <NavDropdown.Item href="#Veladores123">

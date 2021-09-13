@@ -4,6 +4,7 @@ import NavBar from "./components/navBar/navBar";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import ListarItemsCargados from "./components/container/itemListContainer";
 import CarritoDetail from "./components/carritoDetail/carritoDetail";
+import ItemDetailContainer from "./components/container/itemDetailContainer";
 
 function App() {
   return (
@@ -15,6 +16,11 @@ function App() {
           exact
           path="/categorias/:selector"
           component={ListarItemsCargados}
+        />
+        <Route
+          exact
+          path="/categorias/:selector/:idSelector"
+          component={ItemDetailContainer}
         />
         <Route exact path="/cart" component={CarritoDetail} />
       </Switch>

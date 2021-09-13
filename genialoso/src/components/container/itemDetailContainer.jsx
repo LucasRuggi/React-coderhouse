@@ -1,21 +1,18 @@
 import { useState, useEffect } from "react";
-import "./itemListContainer.css";
+import { useParams } from "react-router";
 import { getFetch } from "../productos/productos";
-import ItemList from "../container/tienda/itemList";
-import { useParams } from "react-router-dom";
 import LoaderIcon from "../utils/loaderIcon/loaderIcon";
+import ItemDetail from "./tienda/itemDetail";
 
-function ListarItemsCargados() {
+export default function ItemDetailContainer() {
   const [productosState, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { selector } = useParams();
+  const { idSelector } = useParams();
 
   useEffect(() => {
-    if (selector) {
+    if (idSelector) {
       getFetch.then((res) => {
-        setProductos(
-          res.filter((categorias) => categorias.categoria === selector)
-        );
+        setProductos(res.filter((idProducto) => idProducto.id === idSelector));
         setLoading(false);
       });
     } else {
@@ -24,7 +21,7 @@ function ListarItemsCargados() {
         setLoading(false);
       });
     }
-  }, [selector]);
+  }, [idSelector]);
 
   return (
     <div className="d-flex justify-content-center mr-2 mt-5">
@@ -33,10 +30,8 @@ function ListarItemsCargados() {
           <LoaderIcon />
         </div>
       ) : (
-        <ItemList productos={productosState} />
+        <ItemDetail productos={productosState} />
       )}
     </div>
   );
 }
-
-export default ListarItemsCargados;
