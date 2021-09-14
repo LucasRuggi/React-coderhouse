@@ -19,7 +19,6 @@ function Item({ productos }) {
         <div className="bar"></div>
         <div className="card-body text-left ml-1">
           <h5 className="card-title">{productos.titulo}</h5>
-          <p className="desc">{productos.descripcion}</p>
           <p className="card-text">{productos.precio}</p>
           <div className="d-flex justify-content-around">
             <div className="buy d-flex containerBtn">

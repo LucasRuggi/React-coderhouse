@@ -6,14 +6,14 @@ p {
 
 .card {
     width: 18rem;
-    height: 40rem;
+    height: 30rem;
     background-color: transparent;
     border: 1px solid #fff;
 }
 
 .img-fluid {
     width: auto;
-    height: 35%;
+    height: 45%;
 }
 
 

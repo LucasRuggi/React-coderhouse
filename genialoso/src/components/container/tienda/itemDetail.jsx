@@ -13,7 +13,7 @@ export default function ItemDetail({ productos }) {
           <div className="col-12 col-md-6 d-flex align-items-center justify-content-center">
             <img
               src={unProducto.img}
-              className="ml-4 mb-3 imgDetail"
+              className="imgDetail"
               alt={unProducto.titulo}
             ></img>
           </div>
@@ -25,7 +25,7 @@ export default function ItemDetail({ productos }) {
                 <p className="product_desc">{unProducto.descripcion}</p>
                 <p className="card-text">{unProducto.precio}</p>
                 <div className="buy d-flex containerBtn">
-                  <Link to="./">
+                  <Link to="/">
                     <button className="btn buyBtn">Volver</button>
                   </Link>
                 </div>
