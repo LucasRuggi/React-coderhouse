@@ -10,7 +10,7 @@ import "./navBar.css";
 function NavBar() {
   return (
     <>
-      <Navbar bg="dark" variant="dark" expand="lg">
+      <Navbar bg="dark" variant="dark" expand="lg" className="navBarFondo">
         <Container>
           <Navbar.Brand>
             <Link to="/">
