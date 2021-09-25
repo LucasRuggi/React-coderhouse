@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { getFetch } from "../productos/productos";
 import LoaderIcon from "../utils/loaderIcon/loaderIcon";
-import ItemDetail from "./tienda/itemDetail";
+import ItemListDetail from "./tienda/ItemListDetail";
 
 export default function ItemDetailContainer() {
   const [productosState, setProductos] = useState([]);
@@ -24,14 +24,33 @@ export default function ItemDetailContainer() {
   }, [idSelector]);
 
   return (
-    <div className="d-flex justify-content-center mr-2 mt-5">
-      {loading ? (
-        <div>
-          <LoaderIcon />
-        </div>
-      ) : (
-        <ItemDetail productos={productosState} />
-      )}
-    </div>
+    <>
+      <div className="d-flex justify-content-center mr-2 mt-5">
+        {loading ? (
+          <div>
+            <LoaderIcon />
+          </div>
+        ) : (
+          <ItemListDetail productos={productosState} />
+        )}
+      </div>
+    </>
   );
 }
+
+/*useEffect(() => {
+    const dbQuery = getFirestore();
+
+    dbQuery
+      .collection("items")
+      .doc(idSelector)
+      .get()
+
+      .then((item) => {
+        setProducto({ id: item.id, ...item.data() });
+      })
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
+  }, [idSelector]);
+
+  console.log(producto);*/

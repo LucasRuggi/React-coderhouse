@@ -22,9 +22,6 @@ function Item({ productos }) {
           <p className="card-text">{productos.precio}</p>
           <div className="d-flex justify-content-around">
             <div className="buy d-flex containerBtn">
-              <button className="btn buyBtn">Agregar</button>
-            </div>
-            <div className="buy d-flex containerBtn">
               <Link to={productoPorId}>
                 <button className="btn buyBtn">Detalle</button>
               </Link>
