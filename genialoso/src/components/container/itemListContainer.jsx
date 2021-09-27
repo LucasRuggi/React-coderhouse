@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./itemListContainer.css";
 import { getFetch } from "../productos/productos";
-import ItemList from "../container/tienda/itemList";
+import ItemList from "../tienda/itemList";
 import { useParams } from "react-router-dom";
 import LoaderIcon from "../utils/loaderIcon/loaderIcon";
 //import { getFirestore } from "../../servicios/firebase";

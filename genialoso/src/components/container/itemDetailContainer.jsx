@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { getFetch } from "../productos/productos";
 import LoaderIcon from "../utils/loaderIcon/loaderIcon";
-import ItemListDetail from "./tienda/ItemListDetail";
+import ItemListDetail from "../tienda/ItemListDetail";
 
 export default function ItemDetailContainer() {
   const [productosState, setProductos] = useState([]);

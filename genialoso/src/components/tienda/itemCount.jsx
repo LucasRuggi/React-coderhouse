@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./itemCount.css";
 
-export default function ItemCount({ initial, onAdd, producto }) {
-  const [count, setCount] = useState(initial);
+export default function ItemCount({ onAdd, producto }) {
+  const [count, setCount] = useState(1);
 
   function sumar() {
     if (count < producto.cantidad) {
@@ -19,20 +19,16 @@ export default function ItemCount({ initial, onAdd, producto }) {
     }
   }
 
-  const agregarCarrito = () => {
-    onAdd(count);
-  };
-
-  let precioAB = count * producto.precio;
+  let precioTotal = count * producto.precio;
 
   return (
     <div>
       <div className="buy d-flex containerBtnCount">
-        <h5 className="precioCount">Total: ${precioAB}</h5>
+        <h5 className="precioCount">Total: ${precioTotal}</h5>
       </div>
 
       <div className="buy d-flex containerBtnCount">
-        <button className="btn buyBtnCount " onClick={restar}>
+        <button className="btn buyBtnCountMenos " onClick={restar}>
           -
         </button>
 
@@ -40,7 +36,7 @@ export default function ItemCount({ initial, onAdd, producto }) {
           <h4 className="txtCountBtn"> {count}</h4>
         </div>
 
-        <button className="btn buyBtnCount" onClick={sumar}>
+        <button className="btn buyBtnCountMas" onClick={sumar}>
           +
         </button>
       </div>
@@ -49,7 +45,10 @@ export default function ItemCount({ initial, onAdd, producto }) {
           <button className="btn buyBtnOther btnCount">Volver</button>
         </Link>
 
-        <button className="btn buyBtnOther btnCount" onClick={agregarCarrito}>
+        <button
+          className="btn buyBtnOther btnCount"
+          onClick={() => onAdd(count)}
+        >
           Agregar
         </button>
       </div>

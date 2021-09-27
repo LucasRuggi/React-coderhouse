@@ -44,5 +44,5 @@ const productos = [
 export const getFetch = new Promise((resolve) => {
   setTimeout(() => {
     resolve(productos);
-  }, 100);
+  }, 1000);
 });

@@ -2,12 +2,15 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import ItemCount from "./itemCount";
 import "./itemDetail.css";
+import { CartContextUse } from "../../context/CartContext";
 
 export default function ItemDetail({ unProducto }) {
-  const [statusBoton, setstatusBoton] = useState(true);
+  const [estadoBoton, setBoton] = useState(true);
+  const { addItem } = CartContextUse();
 
-  const onAdd = () => {
-    setstatusBoton(false);
+  const onAdd = (qty) => {
+    addItem(unProducto, qty);
+    setBoton(false);
   };
 
   return (
@@ -34,8 +37,8 @@ export default function ItemDetail({ unProducto }) {
           </div>
         </div>
         <div>
-          {statusBoton ? (
-            <ItemCount initial={1} producto={unProducto} onAdd={onAdd} />
+          {estadoBoton ? (
+            <ItemCount producto={unProducto} onAdd={onAdd} />
           ) : (
             <Link to="/cart">
               <div className="btnCountainerTerminar">

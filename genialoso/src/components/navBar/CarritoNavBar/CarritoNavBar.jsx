@@ -1,18 +1,21 @@
 import React from "react";
 import "./carritoNavBar.css";
-import { Link } from "react-router-dom";
+import { CartContextUse } from "../../../context/CartContext";
+import Badge from "react-bootstrap/Badge";
 
 function CarritoNavBar() {
+  const { cartAmount } = CartContextUse();
   return (
-    <Link to="/cart">
-      <button className="BtnCarrito">
-        <img
-          className="btnImg"
-          src="/img/imgCarrito/imgCarrito.png"
-          alt="carrito"
-        />
-      </button>
-    </Link>
+    <>
+      <img
+        className="btnImg"
+        src="/img/imgCarrito/imgCarrito.png"
+        alt="carrito"
+      />
+      <Badge pill bg="success">
+        {cartAmount}
+      </Badge>
+    </>
   );
 }
 export default CarritoNavBar;

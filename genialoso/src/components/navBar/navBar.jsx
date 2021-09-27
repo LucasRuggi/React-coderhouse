@@ -6,8 +6,10 @@ import CarritoNavBar from "./CarritoNavBar/CarritoNavBar";
 import LogoGenialoso from "./logo.jsx";
 import { Link } from "react-router-dom";
 import "./navBar.css";
+import { CartContextUse } from "../../context/CartContext";
 
 function NavBar() {
+  const { cart } = CartContextUse();
   return (
     <>
       <Navbar bg="dark" variant="dark" expand="lg" className="navBarFondo">
@@ -46,7 +48,9 @@ function NavBar() {
                 </Link>
               </NavDropdown>
             </Nav>
-            <CarritoNavBar />
+            <Link to="/cart">
+              {cart.length === 0 ? null : <CarritoNavBar />}
+            </Link>
           </Navbar.Collapse>
         </Container>
       </Navbar>
