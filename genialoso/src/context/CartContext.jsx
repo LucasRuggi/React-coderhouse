@@ -21,7 +21,11 @@ export default function CartContextProvider({ children }) {
 
       updateQty.map((element) => {
         if (element.item.id === item.id) {
-          return (element.quantity += quantity);
+          element.quantity += quantity;
+          if (element.quantity > element.item.cantidad) {
+            alert("No hay mas stock, ya agregaste el maximo que teniamos");
+            element.quantity = element.item.cantidad;
+          }
         }
       });
       setCart(updateQty);
@@ -29,22 +33,6 @@ export default function CartContextProvider({ children }) {
       return setCart([...cart, { item, quantity }]);
     }
   };
-
-  // FUNCION CUANDO QUERES AGREGAR UN PRODUCTO QUE YA ESTA EN EL CARRITO CRASHEA
-  // const addItem = (item, quantity) => {
-  //   if (isInCart(item.id)) {
-  //     setCart(
-  //       [...cart].map((qty) => {
-  //         if (qty.item.id === item.id) {
-  //           return (qty.quantity += quantity);
-  //         }
-  //         return setCart(qty);
-  //       })
-  //     );
-  //   } else {
-  //     return setCart([...cart, { item, quantity }]);
-  //   }
-  // };
 
   const isInCart = (id) => cart.find((element) => element.item.id === id);
 
