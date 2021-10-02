@@ -40,11 +40,18 @@ export default function ItemDetail({ unProducto }) {
           {estadoBoton ? (
             <ItemCount producto={unProducto} onAdd={onAdd} />
           ) : (
-            <Link to="/cart">
-              <div className="btnCountainerTerminar">
-                <button className="buyBtn">Terminar Compra</button>
-              </div>
-            </Link>
+            <div className="d-flex justify-content-center">
+              <Link to="/">
+                <div className="btnCountainerTerminar">
+                  <button className="buyBtn">Seguir comprando</button>
+                </div>
+              </Link>
+              <Link to="/cart">
+                <div className="btnCountainerTerminar">
+                  <button className="buyBtn">Ir al carrito</button>
+                </div>
+              </Link>
+            </div>
           )}
         </div>
       </div>

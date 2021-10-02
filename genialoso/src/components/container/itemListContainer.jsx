@@ -39,8 +39,6 @@ function ListarItemsCargados() {
     }
   }, [selector]);
 
-  console.log(productosState);
-
   return (
     <div className="d-flex justify-content-center mr-2 mt-5">
       {loading ? (
