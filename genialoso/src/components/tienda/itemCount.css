@@ -152,10 +152,3 @@
     height: 44%;
 }
 
-.contenedorCarrito{
-    display: flex;
-    flex-direction: row;
-    flex-wrap:nowrap;   
-    width: 85%;
-    height: 100%;
-}
