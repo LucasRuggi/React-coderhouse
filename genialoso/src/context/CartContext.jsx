@@ -9,10 +9,19 @@ export const CartContextUse = () => {
 export default function CartContextProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [cartAmount, setCartAmount] = useState("");
+  const [cartTotal, setCartTotal] = useState("");
 
   useEffect(() => {
     const amount = cart.reduce((acc, item) => acc + item.quantity, 0);
     setCartAmount(amount);
+  }, [cart]);
+
+  useEffect(() => {
+    const total = cart.reduce(
+      (acc, unidad) => acc + unidad.quantity * unidad.item.precio,
+      0
+    );
+    setCartTotal(total);
   }, [cart]);
 
   const addItem = (item, quantity) => {
@@ -45,7 +54,7 @@ export default function CartContextProvider({ children }) {
 
   return (
     <CartContext.Provider
-      value={{ cart, addItem, clearCart, removeItem, cartAmount }}
+      value={{ cart, addItem, clearCart, removeItem, cartAmount, cartTotal }}
     >
       {children}
     </CartContext.Provider>

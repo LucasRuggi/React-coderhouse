@@ -8,7 +8,6 @@ export default function CartContainer() {
 
   const carritoVacio = (
     <div>
-      {/*CAMBIAR ESTO POR CSS CUANDO EL CARRITO ESTA VACIO */}
       <h2 className="text-center">El carrito esta vacio!</h2>
       <div className="buy d-flex containerBtnCount">
         <Link to="/">
