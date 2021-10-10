@@ -30,7 +30,10 @@ export default function CarritoDetail() {
               <div className="row">
                 {cart.map((element) => {
                   return (
-                    <div className="detail_container-cart d-flex">
+                    <div
+                      className="detail_container-cart d-flex"
+                      key={element.item.id}
+                    >
                       <div className="col-12 col-sm-6 d-flex align-items-center justify-content-center ">
                         <img
                           src={element.item.img}

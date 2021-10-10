@@ -20,32 +20,36 @@ function NavBar() {
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
+          <Navbar.Collapse>
             <Nav className="me-auto">
-              <Nav.Link>
-                <Link to="/" className="txtLink">
-                  Inicio
-                </Link>
+              <Nav.Link as={Link} to="/" className="txtLink">
+                Inicio
               </Nav.Link>
 
-              <NavDropdown title="Productos" id="basic-nav-dropdown">
-                <Link to="/categorias/veladores" className="txtLink">
-                  <NavDropdown.Item href="#Veladores123">
-                    Veladores
-                  </NavDropdown.Item>
-                </Link>
+              <NavDropdown title="Productos" className="navBarFondo">
+                <NavDropdown.Item
+                  as={Link}
+                  to="/categorias/veladores"
+                  className="txtLink "
+                >
+                  Veladores
+                </NavDropdown.Item>
 
-                <Link to="/categorias/espejos" className="txtLink">
-                  <NavDropdown.Item href="#Espejos123">
-                    Espejos
-                  </NavDropdown.Item>
-                </Link>
+                <NavDropdown.Item
+                  as={Link}
+                  to="/categorias/espejos"
+                  className="txtLink"
+                >
+                  Espejos
+                </NavDropdown.Item>
 
-                <Link to="/categorias/lamparas" className="txtLink">
-                  <NavDropdown.Item href="#Lamparas123">
-                    Lamparas
-                  </NavDropdown.Item>
-                </Link>
+                <NavDropdown.Item
+                  as={Link}
+                  to="/categorias/lamparas"
+                  className="txtLink"
+                >
+                  Lamparas
+                </NavDropdown.Item>
               </NavDropdown>
             </Nav>
             <Link to="/cart">

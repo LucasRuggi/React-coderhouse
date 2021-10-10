@@ -12,17 +12,20 @@
     width: 150px;
 }
 
-
 .txtLink{
   text-decoration: none;
-  color: rgba(255,255,255,.55);
+  color: rgba(255,255,255,.75);
 }
 
 .txtLink:hover{
-  color: rgba(255,255,255,.75);
+  color: #212121 ;
+  background-color: #c9c6bd !important;
 }
 
 .navBarFondo{
   background-color: #212121 !important;
 }
 
+.dropdown-menu{
+  background-color: #212121 !important;
+}
