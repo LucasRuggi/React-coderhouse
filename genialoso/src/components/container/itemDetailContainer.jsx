@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import LoaderIcon from "../utils/loaderIcon/loaderIcon";
-//import ItemListDetail from "../tienda/ItemListDetail";
 import { getFirestore } from "../../servicios/firebase";
 import ItemDetail from "../tienda/itemDetail";
 

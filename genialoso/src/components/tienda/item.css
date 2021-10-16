@@ -92,3 +92,8 @@ p {
     display: flex;
     justify-content: center;
 }
+
+.containerItems{
+    width: auto;
+    height: 100%;
+}

@@ -32,9 +32,12 @@ export default function FormOrder() {
     const db = getFirestore();
     db.collection("orders")
       .add(orden)
-      .then((resp) => alert(resp.id));
+      .then(alert("Gracias por tu compra!"))
+      .finally(clearCart);
+
     clearCart();
   };
+
   const handleOnChange = (change) => {
     setFormData({
       ...formData,
@@ -45,7 +48,7 @@ export default function FormOrder() {
   let validacionForm;
 
   if (
-    !/\S+@\S+.\S+/.test(formData.email) ||
+    !/\S@\S/.test(formData.email) ||
     formData.telefono === "" ||
     formData.direccion === "" ||
     formData.nombre === ""
@@ -106,6 +109,7 @@ export default function FormOrder() {
           <div className="form-group ">
             <label htmlFor="address">Dirección</label>
             <input
+              placeholder="Calle falsa 123"
               type="text"
               className="form-control"
               id="address"
@@ -117,11 +121,15 @@ export default function FormOrder() {
         </form>
         <div>
           {validacionForm ? (
-            <></>
+            <>
+              <button type="submit" className="btn botonEnviarOrden">
+                Enviar Orden
+              </button>
+            </>
           ) : (
             <button
               type="submit"
-              className="btn botonEnviarOrden"
+              className="btn botonEnviarOrdenComplete"
               onClick={handleOnSubmit}
             >
               Enviar Orden
