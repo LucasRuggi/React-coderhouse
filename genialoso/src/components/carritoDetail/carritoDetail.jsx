@@ -10,7 +10,7 @@ export default function CarritoDetail() {
     <>
       {finalizarCompra ? (
         <>
-          <div className="text-center">
+          <div className="text-center ">
             <div>
               <button
                 className="btn buyBtnOtherRemove btnCount"
@@ -26,8 +26,8 @@ export default function CarritoDetail() {
               </button>
             </div>
             <h3>Total del carrito: ${cartTotal}</h3>
-            <div className="container-fluid col-lg-12 align-self-center contenedorCarrito">
-              <div className="row">
+            <div className="container-fluid col-lg-12 contenedorCarrito">
+              <div className="row justify-content-center">
                 {cart.map((element) => {
                   return (
                     <div

@@ -1,4 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 const CartContext = createContext();
 
@@ -10,6 +12,7 @@ export default function CartContextProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [cartAmount, setCartAmount] = useState("");
   const [cartTotal, setCartTotal] = useState("");
+  const MySwal = withReactContent(Swal);
 
   useEffect(() => {
     const amount = cart.reduce((acc, item) => acc + item.quantity, 0);
@@ -32,7 +35,12 @@ export default function CartContextProvider({ children }) {
         if (element.item.id === item.id) {
           element.quantity += quantity;
           if (element.quantity > element.item.cantidad) {
-            alert("No hay mas stock, ya agregaste el maximo que teniamos");
+            MySwal.fire({
+              icon: "error",
+              text: "Ya agregaste la cantidad maxima que tenemos en stock!",
+              confirmButtonColor: "#626668c9",
+              background: "#c9c6bd",
+            });
             element.quantity = element.item.cantidad;
           }
         }
@@ -54,7 +62,15 @@ export default function CartContextProvider({ children }) {
 
   return (
     <CartContext.Provider
-      value={{ cart, addItem, clearCart, removeItem, cartAmount, cartTotal }}
+      value={{
+        cart,
+        addItem,
+        clearCart,
+        removeItem,
+        cartAmount,
+        cartTotal,
+        MySwal,
+      }}
     >
       {children}
     </CartContext.Provider>

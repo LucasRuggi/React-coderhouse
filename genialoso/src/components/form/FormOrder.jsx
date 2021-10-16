@@ -7,7 +7,7 @@ import "firebase/firestore";
 import { getFirestore } from "../../servicios/firebase";
 
 export default function FormOrder() {
-  const { cartAmount, cartTotal, cart, clearCart } = CartContextUse();
+  const { cartAmount, cartTotal, cart, clearCart, MySwal } = CartContextUse();
   const [formData, setFormData] = useState({
     nombre: "",
     telefono: "",
@@ -32,10 +32,17 @@ export default function FormOrder() {
     const db = getFirestore();
     db.collection("orders")
       .add(orden)
-      .then(alert("Gracias por tu compra!"))
+      .then((resp) =>
+        MySwal.fire({
+          title: <strong>Gracias por su compra</strong>,
+          html: <i>Su id de compra es: {resp.id}</i>,
+          icon: "success",
+          iconColor: "#19a63f",
+          confirmButtonColor: "#626668c9",
+          background: "#c9c6bd",
+        })
+      )
       .finally(clearCart);
-
-    clearCart();
   };
 
   const handleOnChange = (change) => {

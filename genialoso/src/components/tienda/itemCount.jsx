@@ -1,15 +1,22 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./itemCount.css";
+import { CartContextUse } from "../../context/CartContext";
 
 export default function ItemCount({ onAdd, producto }) {
   const [count, setCount] = useState(1);
+  const { MySwal } = CartContextUse();
 
   function sumar() {
     if (count < producto.cantidad) {
       setCount(count + 1);
     } else {
-      alert("No hay mas existencias en stock");
+      MySwal.fire({
+        icon: "error",
+        text: "No hay mas stock de este producto!",
+        confirmButtonColor: "#626668c9",
+        background: "#c9c6bd",
+      });
     }
   }
 
